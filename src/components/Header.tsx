@@ -13,6 +13,7 @@ interface HeaderProps {
   onSelectTab: (tab: NavTab) => void;
   onQuickScan: () => void;
   onOpenDesktopModal: () => void;
+  onOpenScreenshotsModal: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -20,6 +21,7 @@ export const Header: React.FC<HeaderProps> = ({
   onSelectTab,
   onQuickScan,
   onOpenDesktopModal,
+  onOpenScreenshotsModal,
 }) => {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-800 bg-slate-950/90 backdrop-blur-md">
@@ -86,8 +88,17 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </nav>
 
-        {/* Zone 3: Desktop .EXE + Primary Action */}
+        {/* Zone 3: Report Screenshots + Desktop .EXE + Primary Action */}
         <div className="flex items-center gap-2.5 shrink-0">
+          <button
+            onClick={onOpenScreenshotsModal}
+            title="View & Download Output Screenshots (Figs 15.1 – 15.8 for Pages 18-20)"
+            className="flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-950/40 px-3 py-2 text-xs font-semibold text-emerald-300 hover:bg-emerald-900/50 hover:text-white transition-colors whitespace-nowrap shrink-0"
+          >
+            <FileText className="w-3.5 h-3.5 text-emerald-400" />
+            <span>Report Screenshots</span>
+          </button>
+
           <button
             onClick={onOpenDesktopModal}
             title="Download Windows .EXE or Install Desktop App"
@@ -147,6 +158,12 @@ export const Header: React.FC<HeaderProps> = ({
           }`}
         >
           History
+        </button>
+        <button
+          onClick={onOpenScreenshotsModal}
+          className="px-2.5 py-1 rounded whitespace-nowrap bg-emerald-950/60 text-emerald-400 border border-emerald-800/50"
+        >
+          Screenshots
         </button>
         <button
           onClick={onOpenDesktopModal}

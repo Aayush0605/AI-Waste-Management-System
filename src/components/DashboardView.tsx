@@ -15,6 +15,7 @@ interface DashboardViewProps {
   onNavigateGuide: (category?: WasteCategory) => void;
   onNavigateHistory: () => void;
   onNavigatePictureReport: () => void;
+  onOpenScreenshots?: () => void;
 }
 
 export const DashboardView: React.FC<DashboardViewProps> = ({
@@ -23,6 +24,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   onNavigateGuide,
   onNavigateHistory,
   onNavigatePictureReport,
+  onOpenScreenshots,
 }) => {
   const totalScans = records.length;
   const nonGeneralScans = records.filter(
@@ -96,6 +98,14 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             >
               Generate Picture Report
             </button>
+            {onOpenScreenshots && (
+              <button
+                onClick={onOpenScreenshots}
+                className="rounded-lg border border-emerald-500/40 bg-emerald-950/30 px-4 py-2.5 text-sm font-medium text-emerald-300 hover:bg-emerald-900/40 hover:text-white transition-colors flex items-center gap-2"
+              >
+                <span>Report Figures (15.1 – 15.8)</span>
+              </button>
+            )}
           </div>
         </div>
       </section>

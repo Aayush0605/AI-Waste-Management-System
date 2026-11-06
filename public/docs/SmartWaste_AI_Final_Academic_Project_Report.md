@@ -483,15 +483,69 @@ The macro F1-score of **0.880** confirms robust and balanced predictive capabili
 
 ## 15. OUTPUT SCREENSHOTS & USER INTERFACE WALKTHROUGH
 
-*(Detailed visual documentation corresponding to the operational application interfaces)*
+Below are the high-resolution operational output screenshots of the SmartWaste AI system, documenting each key module, inference pipeline, warning mechanisms, database analytics, and standalone desktop distribution as specified in the curriculum evaluation requirements.
 
-1. **Dashboard Interface:** Displays overall system status, total scan metrics, landfill diversion rate gauge (85%+), target category breakdown cards, and recent prediction logs.
-2. **Classifier View (Input & Live Webcam):** Shows the three-tab input module (file drag-and-drop, real-time camera viewfinder with snapshot, and sample presets). Displays prediction cards with dominant class, confidence meter, low-confidence warning banners, top-3 probability bars, and preparation steps.
-3. **Waste Sorting & Preparation Guide:** Searchable reference manual detailing accepted and forbidden items, contamination hazards, decomposition timelines, and bin color coding for each of the six streams.
-4. **Classification History & Database:** Tabular view of records saved to SQLite with search, category filtering, confidence thresholds, item inspection modal, and CSV export.
-5. **Model Evaluation Lab:** Interactive 6×6 confusion matrix with hover inspection, per-class metrics table, and 25-epoch accuracy/loss curves.
-6. **Big Data Training Hub:** Live training studio displaying real-time batch telemetry on Kaggle's 24,612-image dataset, loss curves, and model weight export buttons.
-7. **Desktop .EXE Packaging Modal:** Interface providing one-click PWA desktop installation and direct download of the Windows executable packaging kit.
+---
+
+### Page 18: Core Interface & Input Modalities
+
+![Figure 15.1: Dashboard interface](screenshots/figure_15_1_dashboard.jpg)
+
+**Figure 15.1: Dashboard interface**  
+*Overview of the SmartWaste AI central control deck, displaying total processed scans (24 items), real-time landfill diversion rate gauge (85%), system average confidence (92%), six categorized waste stream summary cards, and live audit telemetry logs.*
+
+<br/>
+
+![Figure 15.2: Waste classifier, image upload](screenshots/figure_15_2_classifier_upload.jpg)
+
+**Figure 15.2: Waste classifier, image upload**  
+*Inference view under standard file upload modality. A high-clarity plastic bottle sample is evaluated with 95.0% confidence, top-3 category alternative probabilities (Paper: 3.1%, Glass: 1.2%), designated yellow recycling bin indicator, and facility preparation protocols.*
+
+<br/>
+
+![Figure 15.3: Waste classifier, live webcam stream](screenshots/figure_15_3_live_webcam.jpg)
+
+**Figure 15.3: Waste classifier, live webcam stream**  
+*Live video stream optical viewfinder capturing an aluminium beverage can on a simulated sorting conveyor. Real-time bounding crosshairs, 98.6% confidence detection overlay, and instantaneous 'Capture Frame for Analysis' snapshot trigger.*
+
+---
+
+### Page 19: Safety Warnings, Guidelines & Data Logs
+
+![Figure 15.4: Low-confidence warning for a soiled item](screenshots/figure_15_4_low_confidence.jpg)
+
+**Figure 15.4: Low-confidence warning for a soiled item**  
+*Automated safety threshold trigger (Test Case TC-05) on a contaminated, grease-soaked pizza box. Because prediction certainty falls below the 65% acceptance threshold (58%), the system displays an amber warning banner instructing manual segregation to prevent batch contamination.*
+
+<br/>
+
+![Figure 15.5: Material disposal and preparation guide](screenshots/figure_15_5_disposal_guide.jpg)
+
+**Figure 15.5: Material disposal and preparation guide**  
+*Searchable municipal preparation protocol guide detailing accepted materials (PET bottles, HDPE jugs), forbidden items (cling film, expanded polystyrene), standard operating preparation steps (rinse, remove caps, flatten), and designated container color codes.*
+
+<br/>
+
+![Figure 15.6: Classification history and database view](screenshots/figure_15_6_history_database.jpg)
+
+**Figure 15.6: Classification history and database view**  
+*Persistent database explorer showing historical inference logs with full-text search, stream-based dropdown filtering, confidence threshold filters, image thumbnails, timestamped audit entries, and 'Export CSV' functionality for audit trails.*
+
+---
+
+### Page 20: Model Analytics & Desktop Standalone Packaging
+
+![Figure 15.7: Model evaluation lab and training studio](screenshots/figure_15_7_model_evaluation.jpg)
+
+**Figure 15.7: Model evaluation lab and training studio**  
+*Deep learning evaluation dashboard featuring the 6×6 confusion matrix across 24,675 dataset samples, 88.4% test accuracy, 0.87 macro F1-score, dual-axis training loss versus validation loss convergence graphs over 40 epochs, and per-class precision/recall breakdown.*
+
+<br/>
+
+![Figure 15.8: Desktop packaging and standalone application](screenshots/figure_15_8_desktop_app.jpg)
+
+**Figure 15.8: Desktop packaging and standalone application**  
+*Standalone Windows desktop application packaging suite. Shows active PyInstaller distribution modal, confirming single-file executable generation (`SmartWasteAI.exe`, 142 MB), embedded local SQLite storage, ONNX offline inference runtime, and desktop package download trigger.*
 
 ---
 

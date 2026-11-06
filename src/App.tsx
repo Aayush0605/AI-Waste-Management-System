@@ -11,6 +11,7 @@ import { DashboardView } from './components/DashboardView';
 import { WasteGuideView } from './components/WasteGuideView';
 import { HistoryView } from './components/HistoryView';
 import { DesktopAppModal } from './components/DesktopAppModal';
+import { ReportScreenshotsModal } from './components/ReportScreenshotsModal';
 import {
   ClassificationRecord,
   WasteCategory,
@@ -27,6 +28,7 @@ export default function App() {
   const [records, setRecords] = useState<ClassificationRecord[]>(INITIAL_CLASSIFICATIONS);
   const [currentPrediction, setCurrentPrediction] = useState<PredictionResult | null>(null);
   const [isDesktopModalOpen, setIsDesktopModalOpen] = useState(false);
+  const [isScreenshotsModalOpen, setIsScreenshotsModalOpen] = useState(false);
 
   // Load persistent history on mount
   useEffect(() => {
@@ -79,6 +81,7 @@ export default function App() {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
         onOpenDesktopModal={() => setIsDesktopModalOpen(true)}
+        onOpenScreenshotsModal={() => setIsScreenshotsModalOpen(true)}
       />
 
       {/* Main Viewport Container */}
@@ -106,6 +109,7 @@ export default function App() {
             onNavigateGuide={handleNavigateGuide}
             onNavigateHistory={() => setActiveTab('history')}
             onNavigatePictureReport={() => setActiveTab('pictureReport')}
+            onOpenScreenshots={() => setIsScreenshotsModalOpen(true)}
           />
         )}
 
@@ -131,6 +135,12 @@ export default function App() {
         onClose={() => setIsDesktopModalOpen(false)}
       />
 
+      {/* Project Report Figures & Screenshots Gallery Modal */}
+      <ReportScreenshotsModal
+        isOpen={isScreenshotsModalOpen}
+        onClose={() => setIsScreenshotsModalOpen(false)}
+      />
+
       {/* Quiet, Clean, Executive Footer */}
       <footer className="border-t border-slate-900 bg-slate-950/80 py-8 px-6 text-xs text-slate-500">
         <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-4">
@@ -151,6 +161,13 @@ export default function App() {
               className="hover:text-slate-300 transition-colors"
             >
               Scanner
+            </button>
+            <button
+              onClick={() => setIsScreenshotsModalOpen(true)}
+              className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors"
+              title="View and download all 8 output screenshots for Pages 18-20"
+            >
+              Report Figures (15.1 – 15.8)
             </button>
             <button
               onClick={() => setActiveTab('pictureReport')}
