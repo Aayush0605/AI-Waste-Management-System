@@ -1,0 +1,6 @@
+{
+  "name": "SmartWaste AI - Intelligent Waste Classification System",
+  "description": "Deep learning and multimodal computer vision system for real-time waste categorization across plastic, paper, glass, metal, organic, and general waste with disposal guidance and analytics.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
